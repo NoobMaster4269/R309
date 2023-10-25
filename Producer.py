@@ -7,7 +7,7 @@ from paho.mqtt import client as mqtt_client
 
 broker = 'test.mosquitto.org'
 port = 1883
-topic = "/Apex"
+
 # generate client ID with pub prefix randomly
 client_id = f'python-mqtt-{random.randint(0, 1000)}'
 
@@ -39,7 +39,7 @@ def mqtt_thread():
             else:
                 print(f"Failed to send message to topic {topic}")
 
-    topic = input('Entrer le topic à publier :')
+    topic = input('Nom du topic:')
     client = connect_mqtt()
     client.loop_start()
     publish(client, topic)

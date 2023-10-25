@@ -15,16 +15,18 @@ client_id = f'python-mqtt-{random.randint(0, 100)}'
 fenetre = Tk()
 fenetre.geometry("400x400")
 
-topic = Entry(fenetre)
-topic.pack()
+topictk = Entry(fenetre)
+topictk.pack()
 
 def mqtt_thread():
+    global topic
+    topic = topictk.get()
     def connect_mqtt() -> mqtt_client:
         def on_connect(client, userdata, flags, rc):
             if rc == 0:
-                print("Connected to MQTT Broker!")
+                print("Connecté au Broker MQTT !")
             else:
-                print("Failed to connect, return code %d\n", rc)
+                print("Connexion échouée, code %d\n", rc)
 
         client = mqtt_client.Client(client_id)
         client.on_connect = on_connect
@@ -44,20 +46,19 @@ def mqtt_thread():
         client.subscribe(topic)
         client.on_message = on_message
 
-    boutonquit = Button(fenetre, text = "quitter", command = fenetre.destroy)
-    boutonquit.pack()
-
+    
     client = connect_mqtt()
     subscribe(client)
     client.loop_forever()
     
-start_new_thread(mqtt_thread, ())
+
  
-
-
 
 Boutonsubs = Button(fenetre, text="Subscribe", command=lambda: start_new_thread(mqtt_thread, ()))
 Boutonsubs.pack()
+
+boutonquit = Button(fenetre, text = "quitter", command = fenetre.destroy)
+boutonquit.pack()
     
 def run():
     fenetre.mainloop()
