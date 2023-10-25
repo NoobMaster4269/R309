@@ -11,12 +11,12 @@ label.pack()
 
 text = Text(fenetre)
 
+
 entree = Entry(fenetre)
 entree.pack()
-
+i = 0
 def saisie():
-    text.insert(INSERT, entree.get())
-    text.insert(INSERT, "\n")
+    text.insert(INSERT, entree.get() + "\n")
     entree.delete(0, END)
 
 def saisie2():
