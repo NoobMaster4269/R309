@@ -9,6 +9,8 @@ fenetre.geometry("400x400")
 label = Label(fenetre, text = "caca")
 label.pack()
 
+frame = Frame()
+
 text = Text(fenetre)
 
 
