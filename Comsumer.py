@@ -31,6 +31,12 @@ label2.grid(row = 0, column = 1, padx = 5)
 porttk = Entry(frame)
 porttk.grid(row = 1, column = 1)
 
+label3 = Label(frame, text = "Broker :")
+label3.grid(row = 0, column = 2, padx = 5)
+
+brokertk = Entry(frame)
+brokertk.grid(row = 1, column = 2)
+
 Boutonsubs = Button(frame, text ="S'abonner", command=lambda: start_new_thread(mqtt_thread, ()))
 Boutonsubs.grid(row = 2, column = 0, padx = 5, pady = 5)
 
@@ -40,11 +46,6 @@ boutonquit.grid(row = 0, column = 3, padx = 5)
 text = Text(frame, width = 70, height = 7)
 text.grid(row = 3, column = 0, columnspan = 4, padx = 5, pady = 5)
 
-label3 = Label(frame, text = "Broker :")
-label3.grid(row = 0, column = 2, padx = 5)
-
-brokertk = Entry(frame)
-brokertk.grid(row = 1, column = 2)
 
 
 def enregisterlog():
@@ -57,7 +58,7 @@ Boutonsenreg.grid(row = 4, column= 0, padx = 5, pady = 5)
 frame2 = None
 
 def mqtt_thread():
-    global topic, port, frame2 
+    global topic, port 
     topic = topictk.get()
     broker = brokertk.get()
     port = porttk.get()
