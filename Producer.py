@@ -5,7 +5,7 @@ from paho.mqtt import client as mqtt_client
 
 
 
-broker = 'test.mosquitto.org'
+
 
 
 # generate client ID with pub prefix randomly
@@ -41,6 +41,7 @@ def mqtt_thread():
 
     topic = input('Nom du topic:')
     port = int(input('Numero du port : '))
+    broker = input('Broker :')
     client = connect_mqtt()
     client.loop_start()
     publish(client, topic)
