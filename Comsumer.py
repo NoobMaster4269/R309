@@ -114,9 +114,7 @@ def mqtt_thread():
     client.loop_forever()
     clients.append(client)
 
-    client.loop_start()
   
-
     
 
 def run():
