@@ -1,0 +1,1 @@
+rc code de retour qui indique le résultat de la connexion à un broker MQTT
